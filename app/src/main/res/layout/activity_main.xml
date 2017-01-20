@@ -36,4 +36,14 @@
         android:layout_width="90sp"
         android:layout_height="90sp" />
 
+    <Button
+        android:text="Open List With Delay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageImageView"
+        android:layout_alignLeft="@+id/imageImageView"
+        android:layout_alignStart="@+id/imageImageView"
+        android:layout_marginTop="26dp"
+        android:id="@+id/delayListButton" />
+
 </RelativeLayout>
