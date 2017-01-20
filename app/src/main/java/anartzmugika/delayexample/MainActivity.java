@@ -4,10 +4,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.amugika.chronometer.ChronometerWithMS;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private ImageView imageImageView;
     private ChronometerWithMS chronometerWithMS;
-    private VideoView videoView;
+    private Button delayListButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.startTextView);
         imageImageView = (ImageView) findViewById(R.id.imageImageView);
 
+        delayListButton = (Button) findViewById(R.id.delayListButton);
+
         System.out.println("Testing..." + new Date());
         textView.setText(new Date().toString());
 
@@ -36,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         chronometerWithMS.start();
         //In background execute delay
         new LoadDataBackground().execute(5000);
+
+        delayListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
