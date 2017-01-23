@@ -28,22 +28,21 @@
         android:text="Hello World!"
         android:layout_marginBottom="15sp"/>
 
-    <ImageView
-        android:id="@+id/imageImageView"
-        android:layout_centerInParent="true"
-        android:background="@drawable/ic_load"
-        android:layout_below="@+id/startTextView"
-        android:layout_width="90sp"
-        android:layout_height="90sp" />
-
     <Button
         android:text="Open List With Delay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageImageView"
-        android:layout_alignLeft="@+id/imageImageView"
-        android:layout_alignStart="@+id/imageImageView"
+        android:layout_below="@+id/progressBar"
+        android:layout_centerInParent="true"
         android:layout_marginTop="26dp"
         android:id="@+id/delayListButton" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startTextView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progressBar" />
 
 </RelativeLayout>
