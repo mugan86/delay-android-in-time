@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageImageView;
     private ChronometerWithMS chronometerWithMS;
     private Button delayListButton;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         imageImageView = (ImageView) findViewById(R.id.imageImageView);
 
         delayListButton = (Button) findViewById(R.id.delayListButton);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         System.out.println("Testing..." + new Date());
         textView.setText(new Date().toString());
