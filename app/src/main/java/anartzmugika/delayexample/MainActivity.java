@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +15,6 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
-    private ImageView imageImageView;
     private ChronometerWithMS chronometerWithMS;
     private Button delayListButton;
     private ProgressBar progressBar;
@@ -28,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         chronometerWithMS = (ChronometerWithMS) findViewById(R.id.chronometer);
 
         textView = (TextView) findViewById(R.id.startTextView);
-        imageImageView = (ImageView) findViewById(R.id.imageImageView);
 
         delayListButton = (Button) findViewById(R.id.delayListButton);
 
@@ -36,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("Testing..." + new Date());
         textView.setText(new Date().toString());
-
-        imageImageView.setVisibility(View.GONE);
 
         chronometerWithMS.start();
         //In background execute delay
@@ -72,21 +67,26 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Toast.makeText(getApplicationContext(), "Finish!!", Toast.LENGTH_LONG).show();
-            imageImageView.setVisibility(View.GONE);
             System.out.println(result);
             textView.setText("Executed!! (FINISH DATA: " + new Date() + ")");
+            new Animations().setAnimationAppear(textView, 10);
 
             chronometerWithMS.stop();
+
+            progressBar.setVisibility(View.GONE);
 
         }
 
         @Override
         protected void onPreExecute() {
-            imageImageView.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
             textView.setText(textView.getText().toString() + "\n" + "Start to load...(5 seconds wait please)");
+            new Animations().setAnimationAppear(textView, 10);
+
         }
 
         @Override
         protected void onProgressUpdate(Void... values) {}
+
     }
 }
